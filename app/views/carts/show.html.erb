@@ -5,6 +5,7 @@
 			<td><%= item.quantity %> &times;</td>
 			<td><%= item.product.title %></td>
 			<td class="item_price"><%= number_to_currency(item.total_price) %></td>
+			<td><%= button_to 'Delete product', item, :action => :line_item, :method => :delete, :confirm => 'Are you sure?' %></td>
 		</tr>
 	<% end  %>	
 	
