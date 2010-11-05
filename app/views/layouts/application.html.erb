@@ -19,6 +19,9 @@
 			<a href="http://www..../news">News</a><br />
 			<a href="http://www..../contact">Contact</a><br />
 			<p id"datetime"><%= Time.now().strftime("%d/%m/%y %H:%M") %></p>
+
+				<p>You've been here <%= pluralize(@count.to_i, "time") %></p>
+
 		</div>
 		<div id="main">
 			<%= yield %>
