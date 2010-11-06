@@ -6,6 +6,7 @@
 	font: small-caps 40px/40px "Times New Roman",serif;
 	color: #282;
 	text-align: center;
+	width: 100%;
 }
 
 #banner img {
@@ -14,18 +15,20 @@
 
 #columns {
 	background: #141;
+	width: 100%;
 }
 
 #main {
-	margin-left: 13em;
 	padding: 4ex 0 0 2em;
 	background: white;
+	float: right;
+	width:70%;
 }
 
 #side {
+	width: 25%;
 	float: left;
 	padding: 1em 0 1em 1em;
-	width: 12em;
 	background: #141;
 }
 
@@ -164,4 +167,15 @@
 #store .total_line .total_cell {
 	font-weight: bold;
 	border-top: 1px solid #595;
+}
+
+#cart, #cart table {
+	font-size: smaller;
+	color: white;
+}
+
+#cart table {
+	border-top: 1px dotted #595;
+	border-bottom: 1px dotted #595;
+	margin-bottom: 10px;
 }
