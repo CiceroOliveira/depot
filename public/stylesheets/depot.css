@@ -119,8 +119,8 @@
   font-family: sans-serif;
 }
 
-#store .entry img {
-  width: 80px;
+#store .entry form {
+  width: 150px;
   margin-right: 5px;
   margin-bottom: 5px;
   float: left;
