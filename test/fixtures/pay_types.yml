@@ -1,9 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  product_id: ruby
-  order_id: one
+  pay_type: Check
 
 two:
-  product_id: ruby
-  cart_id: one
+  pay_type: Credit Card
+  
+three:
+  pay_type: Purchase Order

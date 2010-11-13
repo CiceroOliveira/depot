@@ -44,3 +44,8 @@ Product.create(:title => 'Debug It!',
       </p>},
   :image_url => '/images/debug.jpg',
   :price => 34.95)
+  
+PayType.delete_all
+PayType.create(:pay_type => "Cheque")
+PayType.create(:pay_type => "Credit Card")
+PayType.create(:pay_type => "Purchase Order")
