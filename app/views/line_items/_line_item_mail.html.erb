@@ -1,0 +1,9 @@
+<% if line_item_mail == @current_item  %>
+<tr id="current_item">
+<% else %>
+<tr>
+<% end  %>
+	<td><%= line_item_mail.quantity %> &times;</td>
+	<td><%= line_item_mail.product.title %></td>
+	<td class="item_price"><%= number_to_currency(line_item_mail.total_price) %></td>
+</tr>

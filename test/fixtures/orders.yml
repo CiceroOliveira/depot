@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: Dave Thomas
+  name: Cicero Oliveira
   address: MyText
-  email: dave@example.org
+  email: cicero@cicerooliveira.com
   pay_type: Check
 
 two:

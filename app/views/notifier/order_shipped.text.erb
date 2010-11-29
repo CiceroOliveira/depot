@@ -1,0 +1,9 @@
+Dear <%= @order.name %>
+
+Your recent order from The Pragmatic Store has been shipped.
+
+The following items:
+
+<%= render @order.line_items %>
+
+will soon be arrivingWe'll send you a separate email when your order ships.
