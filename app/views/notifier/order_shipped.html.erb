@@ -1,9 +1,15 @@
 <h3>Pragmatic Order Shipped</h3>
+<p>Hello, <%= @order.name %></p>
 <p>
-	This is just to let you know that we've shipped your recent order:
+	We are writing to let you know that your ordered will be shipped on 
+	<%= @order.ship_date %>.
 </p>
+<p>Items shipped in this order:</p>
 
 <table>
 	<tr><th colspan="2">Qty</th><th>Description</th></tr>
-	<%= render @order.line_items %>
+	<%= render :partial => 'line_items/line_item_mail', :object => @order.line_items %>
+	<%#= render @order.line_items %>
 </table>
+
+<em>Pragmatic Bookshelf</em>

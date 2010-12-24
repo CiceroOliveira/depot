@@ -14,6 +14,10 @@ class Product < ActiveRecord::Base
       return false
     end
   end
+
+  def self.for_locale
+    find(:all, :order => "title", :conditions=> {:locale => I18n.locale})
+  end
   
   validates :title, :description, :image_url, :presence => true
   validates :price, :numericality => {:greater_than_or_equal_to => 0.01}

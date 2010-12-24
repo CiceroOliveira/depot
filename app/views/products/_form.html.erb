@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+	
+	<div class="field">
+    <%= f.label :locale %><br />
+    <%= f.select :locale, LANGUAGES, :selected => I18n.locale %>
+  </div>
 
   <div class="field">
     <%= f.label :title %><br />

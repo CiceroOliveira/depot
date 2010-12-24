@@ -1,0 +1,26 @@
+<h1>Editing user <%= @user.name %></h1>
+
+<fieldset>
+	<legend>Enter User Details</legend>
+	
+	<%= form_for(@user) do |f| %>
+		
+		<div>
+	    <%= f.label :password, 'Password' %>:
+	    <%= f.password_field :password, :size => 40 %>
+	  </div>
+	
+		<div>
+	    <%= f.label :password_confirmation, 'Confirm password' %>:
+	    <%= f.password_field :password_confirmation, :size => 40 %>
+	  </div>
+	
+		<div>
+	    <%= f.submit "Update" %>
+	  </div>
+	<% end %>
+
+	</fieldset>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>

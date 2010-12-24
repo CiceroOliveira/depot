@@ -29,6 +29,7 @@ class OrdersControllerTest < ActionController::TestCase
   test "should create order" do
     assert_difference('Order.count') do
       post :create, :order => @order.attributes
+      puts @order.errors
     end
 
     assert_redirected_to store_path

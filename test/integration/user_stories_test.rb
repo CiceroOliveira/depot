@@ -3,7 +3,7 @@ require 'test_helper'
 class UserStoriesTest < ActionDispatch::IntegrationTest
   fixtures :products
   
-  test "buing a product" do
+  test "buying a product" do
     LineItem.delete_all
     Order.delete_all
     ruby_book = products(:ruby)
@@ -35,12 +35,11 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template "index"
     cart = Cart.find(session[:cart_id])
-    puts "display #{cart.line_items.size}"
-    #assert_equal 0, cart.line_items.size
+    assert_equal 0, cart.line_items.size
   
     #... one order is created...
-    order = Order.find(:all)
-    #assert_equal 1, orders.size
+    orders = Order.find(:all)
+    assert_equal 1, orders.size
     order = orders[0]
   
     #...containing his information...
@@ -51,7 +50,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   
     #... one line item is created...
     assert_equal 1, order.line_items.size
-    line_item = Order.line_items[0]
+    line_item = order.line_items[0]
     assert_equal ruby_book, line_item.product
     
     #an email is sent.
@@ -59,6 +58,11 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_equal ["dave@example.com"], mail.to
     assert_equal 'Sam Ruby <depot@example.com>', mail[:from].value
     assert_equal 'Pragmatic Store Order Confirmation', mail.subject
+    
+    put "/orders/#{order.id}",
+                :order    => {:ship_date => Time.now }
+    mail = ActionMailer::Base.deliveries.last
+    assert mail    
   end
 
 end

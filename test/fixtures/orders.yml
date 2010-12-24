@@ -4,7 +4,8 @@ one:
   name: Cicero Oliveira
   address: MyText
   email: cicero@cicerooliveira.com
-  pay_type: Check
+  pay_type: Cheque
+  ship_date: <%= Time.now %>
 
 two:
   name: MyString

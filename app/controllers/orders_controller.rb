@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  skip_before_filter :authorize, :only => [:new, :create]
+  
   # GET /orders
   # GET /orders.xml
   def index
@@ -48,14 +50,14 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     @order.add_line_items_from_cart(current_cart)
-
+    
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         Notifier.order_received(@order).deliver
         format.html { redirect_to(store_url, :notice => 
-          'Thank you for your order.') }
+          I18n.t('.thanks')) }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }
@@ -68,9 +70,11 @@ class OrdersController < ApplicationController
   # PUT /orders/1.xml
   def update
     @order = Order.find(params[:id])
+    ship_date = @order.ship_date
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
+        Notifier.order_shipped(@order).deliver if @order.ship_date != ship_date
         format.html { redirect_to(@order, :notice => 'Order was successfully updated.') }
         format.xml  { head :ok }
       else

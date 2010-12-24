@@ -3,3 +3,51 @@
 
 en:
   hello: "Hello world"
+  thanks: "Thank you for your order."
+  cheque: "Cheque"
+  credit_card: "Credit card"
+  purchase_order: "Purchase order"
+  
+  layouts:
+    application:
+      title:  "Pragmatic Bookshelf"
+      home: "Home"
+      questions:  "Questions"
+      news: "News"
+      contact: "Contact"
+  
+  store:
+    index:
+      title_html: "Your Pragmatic Catalog"
+      add_html:  "Add to Cart"
+  
+  carts:
+    cart:
+      title:  "Your Cart"
+      empty:  "Empty cart"
+      checkout: "Checkout"
+      
+  orders:
+    new:
+      legend: "Please enter your details"
+    form:
+      name: "Name"
+      address_html: "Address"
+      email:  "E-mail"
+      pay_type: "Pay with"
+      pay_prompt: "Select a payment method"
+      ship_date: "Ship date"
+      submit: "Place Order"
+  
+  products:
+    index:
+      listing: "Listing products"
+          
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
